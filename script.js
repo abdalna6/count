@@ -1,10 +1,11 @@
-function startCountdown(id, endDate) {
+// العد التنازلي
+function startCountdown(endDate) {
   function updateCountdown() {
     const now = new Date().getTime();
     const distance = endDate - now;
 
     if (distance < 0) {
-      document.getElementById(id).innerText = "الوقت انتهى!";
+      document.getElementById("countdown").innerText = "الوقت انتهى!";
       clearInterval(interval);
       return;
     }
@@ -14,16 +15,25 @@ function startCountdown(id, endDate) {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById(id).innerText = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+    document.getElementById("countdown").innerText = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
   }
 
   const interval = setInterval(updateCountdown, 1000);
   updateCountdown();
 }
 
-// أمثلة لتواريخ العد التنازلي
-const date1 = new Date("2025-02-01T00:00:00").getTime();
-const date2 = new Date("2025-03-01T12:00:00").getTime();
+// بدء العد التنازلي حتى 30 أكتوبر 2025
+const countdownDate = new Date("2025-10-30T23:59:59").getTime();
+startCountdown(countdownDate);
 
-startCountdown("timer1", date1);
-startCountdown("timer2", date2);
+// تحديث بيانات الإنجاز
+function updateProgress(target, achieved) {
+  const percentage = Math.min((achieved / target) * 100, 100).toFixed(2);
+  document.getElementById("achieved").innerText = achieved;
+  document.getElementById("percentage").innerText = `${percentage}%`;
+}
+
+// إدخال البيانات الحالية
+const targetBooks = 50; // المستهدف
+const achievedBooks = 15; // المتحقق حتى الآن
+updateProgress(targetBooks, achievedBooks);
