@@ -35,5 +35,5 @@ function updateProgress(target, achieved) {
 
 // إدخال البيانات الحالية
 const targetBooks = 50; // المستهدف
-const achievedBooks = 15; // المتحقق حتى الآن
+const achievedBooks = 5; // المتحقق حتى الآن
 updateProgress(targetBooks, achievedBooks);
