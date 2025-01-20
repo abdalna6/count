@@ -5,7 +5,10 @@ function startCountdown(endDate) {
     const distance = endDate - now;
 
     if (distance < 0) {
-      document.getElementById("countdown").innerText = "الوقت انتهى!";
+      document.getElementById("days").innerText = "0";
+      document.getElementById("hours").innerText = "0";
+      document.getElementById("minutes").innerText = "0";
+      document.getElementById("seconds").innerText = "0";
       clearInterval(interval);
       return;
     }
@@ -15,7 +18,10 @@ function startCountdown(endDate) {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("countdown").innerText = `${days} يوم ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
   }
 
   const interval = setInterval(updateCountdown, 1000);
@@ -35,5 +41,5 @@ function updateProgress(target, achieved) {
 
 // إدخال البيانات الحالية
 const targetBooks = 50; // المستهدف
-const achievedBooks = 5; // المتحقق حتى الآن
+const achievedBooks = 15; // المتحقق حتى الآن
 updateProgress(targetBooks, achievedBooks);
