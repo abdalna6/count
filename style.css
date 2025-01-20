@@ -16,19 +16,35 @@ h1 {
   padding: 15px;
   background-color: #fff;
   border-radius: 5px;
-  width: 300px;
+  width: 90%;
+  max-width: 400px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-p {
-  font-size: 18px;
-  margin: 10px 0;
+#countdown {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
-#countdown {
-  font-size: 24px;
+.count-box {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  width: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.count-box p {
+  font-size: 20px;
   font-weight: bold;
-  color: #007bff;
+  margin: 0;
+}
+
+.count-box span {
+  font-size: 14px;
 }
 
 #progress-section span {
