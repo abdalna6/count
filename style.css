@@ -4,24 +4,34 @@ body {
   background-color: #f0f0f0;
   color: #333;
   margin: 0;
-  padding: 0;
+  padding: 20px;
 }
 
 h1 {
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-.countdown {
+#countdown-section, #progress-section {
   margin: 20px auto;
-  padding: 10px;
+  padding: 15px;
   background-color: #fff;
   border-radius: 5px;
   width: 300px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#timer1, #timer2 {
+p {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+#countdown {
   font-size: 24px;
   font-weight: bold;
   color: #007bff;
+}
+
+#progress-section span {
+  font-weight: bold;
+  color: #28a745;
 }
