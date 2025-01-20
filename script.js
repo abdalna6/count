@@ -1,45 +1,53 @@
-// العد التنازلي
-function startCountdown(endDate) {
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = endDate - now;
-
-    if (distance < 0) {
-      document.getElementById("days").innerText = "0";
-      document.getElementById("hours").innerText = "0";
-      document.getElementById("minutes").innerText = "0";
-      document.getElementById("seconds").innerText = "0";
-      clearInterval(interval);
-      return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
-  }
-
-  const interval = setInterval(updateCountdown, 1000);
-  updateCountdown();
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 20px;
 }
 
-// بدء العد التنازلي حتى 30 أكتوبر 2025
-const countdownDate = new Date("2025-10-30T23:59:59").getTime();
-startCountdown(countdownDate);
-
-// تحديث بيانات الإنجاز
-function updateProgress(target, achieved) {
-  const percentage = Math.min((achieved / target) * 100, 100).toFixed(2);
-  document.getElementById("achieved").innerText = achieved;
-  document.getElementById("percentage").innerText = `${percentage}%`;
+h1 {
+  margin-bottom: 20px;
 }
 
-// إدخال البيانات الحالية
-const targetBooks = 50; // المستهدف
-const achievedBooks = 15; // المتحقق حتى الآن
-updateProgress(targetBooks, achievedBooks);
+#countdown-section, #progress-section {
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#countdown {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.count-box {
+  text-align: center;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  width: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.count-box p {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.count-box span {
+  font-size: 14px;
+}
+
+#progress-section span {
+  font-weight: bold;
+  color: #28a745;
+}
